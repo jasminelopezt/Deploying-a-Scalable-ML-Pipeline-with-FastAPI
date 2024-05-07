@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest # Switched to Ubuntu for potentially faster execution
+    runs-on: MacOS # Switched to Ubuntu for potentially faster execution
 
     strategy:
       matrix:
@@ -40,4 +40,3 @@ jobs:
       - name: Check code style with flake8
         run: |
           flake8
-
