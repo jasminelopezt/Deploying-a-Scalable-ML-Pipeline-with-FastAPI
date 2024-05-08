@@ -54,7 +54,7 @@ def inference(model, X):
 
     Inputs
     ------
-    model : ???
+    model : RandomForestClassifier
         Trained machine learning model.
     X : np.array
         Data used for prediction.
@@ -128,8 +128,8 @@ def performance_on_categorical_slice(
     X_slice, y_slice, _, _ = process_data(
             data, categorical_features, label=label, training=False, encoder=None, lb=lb
             )
-        # for input data, use data in column given as "column_name", with the slice_value 
-        
+    # for input data, use data in column given as "column_name", with the slice_value 
+    
     X_slice = X_slice[data[column_name] == slice_value]
     y_slice = y_slice[data[column_name] == slice_value]
 
