@@ -1,6 +1,6 @@
 import json
-
 import requests
+from ml.data import process_data  
 
 # TODO: send a GET using the URL http://127.0.0.1:8000
 r = requests.get("http://127.0.0.1:8000")
@@ -27,6 +27,8 @@ data = {
     "hours-per-week": 40,
     "native-country": "United-States",
 }
+
+data_processed, _, _, _ = process_data([data], training=False)
 
 # TODO: send a POST using the data above
 r = requests.post("http://127.0.0.1:8000/data/", json=data)

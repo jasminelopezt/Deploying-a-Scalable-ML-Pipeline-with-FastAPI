@@ -114,7 +114,7 @@ def performance_on_categorical_slice(
         Trained sklearn OneHotEncoder, only used if training=False.
     lb : sklearn.preprocessing._label.LabelBinarizer
         Trained sklearn LabelBinarizer, only used if training=False.
-    model : ???
+    model : RandomForestClassifier
         Model used for the task.
 
     Returns
