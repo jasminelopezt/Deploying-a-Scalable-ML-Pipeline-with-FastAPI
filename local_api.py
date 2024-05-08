@@ -28,7 +28,9 @@ data = {
     "native-country": "United-States",
 }
 
-data_processed, _, _, _ = process_data(data, training=False)
+categorical_features = ["workclass", "education", "marital-status", "occupation", "relationship", "race", "sex", "native-country"]
+
+data_processed, _, _, _ = process_data(data, categorical_features=categorical_features, training=False)
 
 # TODO: send a POST using the data above
 r = requests.post("http://127.0.0.1:8000/data/", json=data)
