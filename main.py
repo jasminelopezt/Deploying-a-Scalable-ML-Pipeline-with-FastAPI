@@ -63,7 +63,7 @@ async def post_inference(data: Data):
         "native-country",
     ]
     data_processed, _, _, _ = process_data(
-        data, training=False, encoder=encoder
+        data, training=False, encoder=None, lb=lb
     )
 
     _inference = inference(model, data_processed)

@@ -11,7 +11,6 @@ print("GET Status Code:", r.status_code)
 print("GET Response:", r.json()["message"])
 
 
-
 data = {
     "age": 37,
     "workclass": "Private",
