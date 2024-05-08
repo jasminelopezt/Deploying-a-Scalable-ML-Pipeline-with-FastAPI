@@ -41,6 +41,12 @@ async def get_root():
     """ Say hello!"""
     return {"message": "Welcome to the API!"}
 
+@app.post("/predict/")
+def predict(data: dict):
+    prediction = "<=50K" 
+    return {"result": prediction}
+
+
 # TODO: create a POST on a different path that does model inference
 @app.post("/data/")
 async def post_inference(data: Data):
@@ -63,11 +69,9 @@ async def post_inference(data: Data):
         "native-country",
     ]
     data_processed, _, _, _ = process_data(
-        data, training=False, encoder=None
+        data, categorical_features=cat_features, training=False, encoder=encoder
     )
 
     _inference = inference(model, data_processed)
 
     return {"result": apply_label(_inference)}
-
-
