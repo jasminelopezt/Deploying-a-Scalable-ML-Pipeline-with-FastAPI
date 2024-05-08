@@ -1,5 +1,6 @@
 import json
 import requests
+import pandas as pd
 from ml.data import process_data, apply_label
 
 # TODO: send a GET using the URL http://127.0.0.1:8000
