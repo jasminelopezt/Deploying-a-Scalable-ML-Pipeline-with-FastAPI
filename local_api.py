@@ -1,6 +1,6 @@
 import json
 import requests
-from ml.data import process_data  
+from ml.data import process_data, apply_label
 
 # TODO: send a GET using the URL http://127.0.0.1:8000
 r = requests.get("http://127.0.0.1:8000")
