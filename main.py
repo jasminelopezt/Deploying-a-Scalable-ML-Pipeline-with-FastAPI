@@ -32,6 +32,9 @@ encoder = load_model(path)
 path = "model/model.pkl" # TODO: enter the path for the saved model 
 model = load_model(path)
 
+if encoder is None or model is None:
+    raise RuntimeError("Failed to load encoder or model.")
+
 # TODO: create a RESTful API using FastAPI
 app = FastAPI()
 
@@ -65,5 +68,9 @@ async def post_inference(data: Data):
     data_processed, _, _, _ = process_data(
         data, training=False, lb=None
     )
+
+    if encoder is None or model is None:
+        raise HTTPException(status_code=500, detail="Encoder or model is not available.")
+    
     _inference = inference(encoder, model, data_processed)
     return {"result": apply_label(_inference)}
