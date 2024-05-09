@@ -67,6 +67,12 @@ model = load_model(model_path)
 # TODO: use the inference function to run the model inferences on the test dataset.
 preds = inference(model, X_test)
 
+encoder = OneHotEncoder(sparse=False, handle_unknown="ignore")
+encoder.fit(train_categorical_data)
+
+with open("encoder.pkl", "wb") as f:
+    pickle.dump(encoder, f)
+
 # Calculate and print the metrics
 p, r, fb = compute_model_metrics(y_test, preds)
 print(f"Precision: {p:.4f} | Recall: {r:.4f} | F1: {fb:.4f}")

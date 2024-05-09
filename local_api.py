@@ -2,6 +2,11 @@ import json
 import requests
 import pandas as pd
 from ml.data import process_data, apply_label
+import pickle
+
+with open("model/encoder.pkl", "rb") as f:
+    encoder = pickle.load(f)
+
 
 # TODO: send a GET using the URL http://127.0.0.1:8000
 r_get = requests.get("http://127.0.0.1:8000")
@@ -32,7 +37,7 @@ data = {
 
 data_df = pd.DataFrame([data])
 
-data_processed, _, _, _ = process_data(data_df, training=False)
+data_processed, _, _, _ = process_data(data_df, training=False, encoder=encoder)
 
 r_post = requests.post("http://127.0.0.1:8000/data/", json=data)
 print("\nPOST Status Code:", r_post.status_code)

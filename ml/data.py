@@ -1,9 +1,8 @@
 import numpy as np
 from sklearn.preprocessing import LabelBinarizer, OneHotEncoder
 
-
 def process_data(
-    X, categorical_features=[], label=None, training=True, encoder=None, lb=None
+    X, categorical_features=["workclass", "education", "marital-status", "occupation", "relationship", "race", "sex", "native-country"], label=None, training=False, encoder=None, lb=None
 ):
     """ Process the data used in the machine learning pipeline.
 
